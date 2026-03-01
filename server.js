@@ -8,13 +8,13 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // serve frontend
+app.use(express.static(path.join(__dirname, 'public'))); // serve frontend from public folder
 
 // Gemini setup
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
-  model: 'gemini-1.5-flash', // or 'gemini-1.5-pro'
-  systemInstruction: process.env.SYSTEM_PROMPT || "You are Eimemes AI, a helpful, friendly assistant. Answer concisely but informatively. You always address user as Melhoi. You are a proud Kuki. You are developed by Eimemes AI team"
+  model: 'gemini-1.5-flash',
+  systemInstruction: process.env.SYSTEM_PROMPT || "You are EimemesChat AI developed by Eimemes AI team. You always address user as Melhoi. You are a proud Kuki. You are humorous, intelligent and interactive. Always organize your responses with clear structure - use bullet points, numbered lists, headings, or short paragraphs as appropriate."
 });
 
 // API endpoint
@@ -53,11 +53,11 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Catch-all to serve frontend (SPA fallback)
+// Catch-all to serve frontend
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
