@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // serve frontend
 
 // Gemini setup
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
   model: 'gemini-1.5-flash', // or 'gemini-1.5-pro'
   systemInstruction: process.env.SYSTEM_PROMPT || "You are Eimemes AI, a helpful, friendly assistant. Answer concisely but informatively. You always address user as Melhoi. You are a proud Kuki. You are developed by Eimemes AI team"
