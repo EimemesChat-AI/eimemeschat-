@@ -1,7 +1,7 @@
 {
-  "name": "eimemeschat-fullstack",
+  "name": "eimemeschat-backend",
   "version": "1.0.0",
-  "description": "Gemini-powered chat with the exact provided style",
+  "description": "Gemini-powered chat backend for EimemesChat",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
